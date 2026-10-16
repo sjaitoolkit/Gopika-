@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8060b9">
+<title>Happy Birthday Gopika 💜</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap');
+
+:root {
+  --bg1: #211432;
+  --bg2: #493164;
+  --lavender: #cbb3ff;
+  --purple: #9471d5;
+  --pink: #ffd7f1;
+  --white: #fffaff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg1);
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 8% 10%, #7551a5 0, transparent 43%),
+    radial-gradient(ellipse at 90% 80%, #67438f 0, transparent 40%),
+    linear-gradient(145deg, var(--bg1), var(--bg2), #251633);
+  overflow-x: hidden;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: #f8edff;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.8); }
+  to { opacity: .9; transform: scale(1.15); }
+}
+
+.heart-float {
+  position: fixed;
+  bottom: -30px;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatUp 8s linear forwards;
+  opacity: .55;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.page {
+  display: none;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 28px 18px 36px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  animation: pageIn .55s ease both;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.inner {
+  width: 100%;
+  max-width: 430px;
+  margin: auto;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #e7d8ff;
+  margin-bottom: 17px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(39px, 10vw, 56px);
+}
+
+h2 {
+  font-size: clamp(29px, 8vw, 39px);
+}
+
+.script {
+  font-family: 'Dancing Script', cursive;
+  color: var(--pink);
+}
+
+.subtitle {
+  max-width: 310px;
+  margin: 17px auto 25px;
+  color: #e5d8f7;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.glass {
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 25px;
+  box-shadow: 0 18px 48px rgba(12,4,27,.23);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.orb {
+  width: 132px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 auto 27px;
+  display: grid;
+  place-items: center;
+  font-size: 59px;
+  background: radial-gradient(circle at 30% 25%, #fff0ff, #d1b5ff 42%, #875dc6 80%);
+  box-shadow: 0 0 32px #d4b4ff70, 0 0 70px #9d73ff40;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 42px #d4b4ff90, 0 0 90px #9d73ff50;
+  }
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  min-height: 48px;
+  padding: 13px 23px;
+  color: #38204e;
+  font-weight: 700;
+  background: linear-gradient(110deg, #f8ddf3, #d7c1ff);
+  box-shadow: 0 7px 24px #13092035;
+  transition: transform .2s;
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+.btn.secondary {
+  color: white;
+  background: #ffffff12;
+  border: 1px solid #ffffff45;
+  box-shadow: none;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.full {
+  width: 100%;
+}
+
+.small-note {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #d8c9ef;
+  margin-top: 19px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* PASSWORD PAGE */
+
+.lock-icon {
+  font-size: 45px;
+  margin-bottom: 16px;
+}
+
+.password-box {
+  margin: 23px auto 0;
+  padding: 23px 18px;
+  text-align: left;
+}
+
+.password-box label {
+  display: block;
+  font-size: 11px;
+  color: #e4d8f7;
+  margin-bottom: 10px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff42;
+  background: #ffffff0c;
+  border-radius: 13px;
+  padding-right: 12px;
+  margin-bottom: 12px;
+}
+
+.input-wrap input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 12px;
+  color: white;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.input-wrap input::placeholder {
+  color: #cbbce0;
+}
+
+.show-pass {
+  border: 0;
+  background: transparent;
+  color: #f3e7ff;
+  font-size: 12px;
+}
+
+.error {
+  min-height: 17px;
+  margin-bottom: 9px;
+  font-size: 12px;
+  color: #ffc3d9;
+}
+
+/* SLIDESHOW PAGE */
+
+#page3 {
+  justify-content: flex-start;
+  padding-top: 32px;
+}
+
+.photo-card {
+  width: 100%;
+  max-width: 330px;
+  margin: 18px auto 0;
+  padding: 11px;
+  border-radius: 23px;
+}
+
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #8e70b7, #342046);
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  color: white;
+}
+
+/* Set this image class to cover if desired */
+.photo-frame img.cover {
+  object-fit: cover;
+}
+
+.photo-number {
+  margin-top: 13px;
+  color: #e4d5f8;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.caption {
+  min-height: 30px;
+  margin-top: 9px;
+  color: #fff0ff;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.progress {
+  width: 100%;
+  max-width: 300px;
+  height: 3px;
+  margin: 17px auto 0;
+  border-radius: 20px;
+  background: #ffffff30;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: #f5d5f1;
+}
+
+.countdown {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  place-items: center;
+  background: #241436ed;
+  backdrop-filter: blur(12px);
+}
+
+.countdown.show {
+  display: grid;
+}
+
+.count-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(90px, 25vw, 145px);
+  color: #f6d9ff;
+  text-shadow: 0 0 45px #c19aff;
+  animation: countPop .8s ease both;
+}
+
+@keyframes countPop {
+  from { transform: scale(.5); opacity: 0; }
+  55% { transform: scale(1.12); opacity: 1; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* FRIENDSHIP LETTER */
+
+.letter-card {
+  margin-top: 22px;
+  padding: 24px 20px;
+  text-align: left;
+  color: #443252;
+  background: linear-gradient(145deg, #fff9ff, #f2e7ff);
+  border-radius: 22px;
+  box-shadow: 0 15px 45px #10051d40;
+}
+
+.letter-title {
+  margin-bottom: 19px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+  color: #8057ac;
+}
+
+.letter-body {
+  white-space: pre-line;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.letter-sign {
+  margin-top: 19px;
+  text-align: right;
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+  color: #8057ac;
+}
+
+/* FINAL VIDEO PAGE */
+
+.video-card {
+  max-width: 330px;
+  margin: 20px auto 0;
+  padding: 10px;
+}
+
+.video-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #211334;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.final-message {
+  max-width: 330px;
+  margin: 23px auto 0;
+  color: #f0e3ff;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.final-message strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #ffd9f5;
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+}
+
+@media (max-width: 360px) {
+  .page {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .photo-card,
+  .video-card {
+    max-width: 300px;
+  }
+
+  .letter-card {
+    padding: 21px 16px;
+  }
+
+  .letter-body {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="stars"></div>
+
+<!-- PAGE 1: WELCOME -->
+<section class="page active" id="page1">
+  <div class="inner">
+    <div class="orb">🎂</div>
+    <p class="eyebrow">A little surprise for you</p>
+    <h1>Hey,<br><span class="script">Gopika</span> 💜</h1>
+    <p class="subtitle">
+      Today is all about you.<br>
+      I made a little something special.<br>
+      Ready to open it?
+    </p>
+    <button class="btn" onclick="goToPage(2)">
+      Open Your Surprise ✨
+    </button>
+    <p class="small-note">Made with love, just for you ♡</p>
+  </div>
+</section>
+
+<!-- PAGE 2: PASSWORD -->
+<section class="page" id="page2">
+  <div class="inner">
+    <div class="lock-icon">🔐</div>
+    <p class="eyebrow">A tiny secret</p>
+    <h2>One little<br><span class="script">password</span></h2>
+    <p class="subtitle">Enter the password to continue 💌</p>
+
+    <div class="password-box glass">
+      <label for="password">PASSWORD</label>
+      <div class="input-wrap">
+        <input id="password" type="password"
+          placeholder="Enter password"
+          autocomplete="off">
+        <button class="show-pass" type="button"
+          onclick="togglePassword()">Show</button>
+      </div>
+      <p class="error" id="passwordError" aria-live="polite"></p>
+      <button class="btn full" onclick="checkPassword()">
+        Unlock Surprise 💜
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3: 8 PHOTO SLIDESHOW -->
+<section class="page" id="page3">
+  <div class="inner">
+    <p class="eyebrow">A little gallery of you</p>
+    <h2>The <span class="script">Birthday Girl</span> ✨</h2>
+    <p class="subtitle">Eight little moments, just for you.</p>
+
+    <div class="photo-card glass">
+      <div class="photo-frame">
+        <img id="slidePhoto"
+          src="photos/photo1.jpg"
+          alt="Gopika birthday photo">
+      </div>
+      <p class="photo-number" id="photoNumber">PHOTO 1 OF 8</p>
+      <p class="caption" id="photoCaption">Your beautiful smile ✨</p>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <p class="small-note" id="slideStatus" aria-live="polite">
+      Your little surprise is getting ready…
+    </p>
+
+    <div class="btn-row hidden" id="slideButtons">
+      <button class="btn secondary" onclick="replaySlideshow()">
+        ↻ Replay
+      </button>
+      <button class="btn" onclick="goToPage(4)">
+        Continue →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div class="countdown" id="countdown" aria-live="assertive">
+  <div class="count-number" id="countNumber">3</div>
+</div>
+
+<!-- PAGE 4: FRIENDSHIP LETTER -->
+<section class="page" id="page4">
+  <div class="inner">
+    <p class="eyebrow">A little note from my heart</p>
+    <h2>To <span class="script">Gopika</span> 💌</h2>
+
+    <div class="letter-card">
+      <div class="letter-title">A letter for you ♡</div>
+
+      <div class="letter-body">Dear Gopika,
+
+On your special day, I just want to remind you how wonderful you are. Some people make ordinary moments feel special just by being themselves, and you are one of those people.
+
+Thank you for the laughs, the little memories, and the happiness you bring. I hope this new year of your life brings you peaceful days, beautiful surprises, genuine smiles, and so many reasons to be proud of yourself.
+
+No matter how busy life gets or how much things change, I hope you never forget how special you are. Keep being your lovely self, keep dreaming big, and never stop smiling.
+
+You deserve a life filled with love, good people, and moments that make your heart happy.
+
+Happy Birthday, Gopika. May this year be kind to you and bring you everything your heart is wishing for. 💜</div>
+
+      <div class="letter-sign">With lots of love ♡</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="goToPage(5)">
+        One Last Surprise →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5: VIDEO + FINAL WISH -->
+<section class="page" id="page5">
+  <div class="inner">
+    <div class="orb"
+      style="width:95px;font-size:43px;margin-bottom:20px">
+      🎁
+    </div>
+
+    <p class="eyebrow">Made especially for you</p>
+    <h2>One last <span class="script">surprise</span></h2>
+    <p class="subtitle">
+      A little video to make your day even more special 💜
+    </p>
+
+    <div class="video-card glass">
+      <div class="video-frame">
+        <video id="birthdayVideo"
+          controls
+          playsinline
+          preload="metadata">
+          <source src="videos/birthday.mp4" type="video/mp4">
+          Your browser does not support this video.
+        </video>
+      </div>
+    </div>
+
+    <div class="final-message">
+      <strong>Happy Birthday, Gopika! 🎂</strong>
+      Keep smiling, keep shining, and stay the amazing person you are.
+      You deserve all the happiness in the world. 💜✨
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="restartWebsite()">
+        ↻ From the Beginning
+      </button>
+    </div>
+
+    <p class="small-note">
+      Your day. Your smile. Your little surprise. ♡
+    </p>
+  </div>
+</section>
+
+<script>
+/* CUSTOM SETTINGS */
+
+const PASSWORD = "Gopika";
+
+const captions = [
+  "Your beautiful smile ✨",
+  "A face full of sunshine 💜",
+  "A little moment to remember 🌷",
+  "Simply being your lovely self ♡",
+  "Keep shining, always ✨",
+  "A beautiful soul, inside and out 💕",
+  "May your smile never fade 🌙",
+  "Today, the spotlight is all yours 🎂"
+];
+
+/* BACKGROUND STARS */
+
+const starsBox = document.getElementById("stars");
+
+for (let i = 0; i < 38; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+  star.textContent = Math.random() > .5 ? "✦" : "·";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.fontSize = (8 + Math.random() * 13) + "px";
+  star.style.animationDelay = Math.random() * 3 + "s";
+  star.style.animationDuration = (2 + Math.random() * 4) + "s";
+  starsBox.appendChild(star);
+}
+
+/* FLOATING HEARTS */
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart-float";
+  heart.textContent =
+    ["♡", "✦", "♥", "✧"][Math.floor(Math.random() * 4)];
+
+  heart.style.left = Math.random() * 95 + "%";
+  heart.style.fontSize = (12 + Math.random() * 17) + "px";
+  heart.style.color =
+    ["#f8d7ff", "#d7c2ff", "#ffcde9"][
+      Math.floor(Math.random() * 3)
+    ];
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}, 1700);
+
+/* PAGE NAVIGATION */
+
+let currentPage = 1;
+let slideTimer = null;
+let progressTimer = null;
+let countdownTimer = null;
+let slideshowRunId = 0;
+
+function goToPage(pageNo) {
+  stopSlideshow();
+  clearInterval(countdownTimer);
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById("countdown").classList.remove("show");
+  document.getElementById("page" + pageNo).classList.add("active");
+
+  currentPage = pageNo;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (pageNo === 3) {
+    startCountdown();
+  }
+
+  if (pageNo !== 5) {
+    document.getElementById("birthdayVideo").pause();
+  }
+}
+
+/* PASSWORD: CASE-INSENSITIVE */
+
+function togglePassword() {
+  const input = document.getElementById("password");
+  const button = document.querySelector(".show-pass");
+
+  if (input.type === "password") {
+    input.type = "text";
+    button.textContent = "Hide";
+  } else {
+    input.type = "password";
+    button.textContent = "Show";
+  }
+}
+
+function checkPassword() {
+  const input = document.getElementById("password");
+  const error = document.getElementById("passwordError");
+
+  if (input.value.trim().toLowerCase() === PASSWORD.toLowerCase()) {
+    error.textContent = "";
+    input.value = "";
+    goToPage(3);
+  } else {
+    error.textContent = "That password isn't quite right. Try again 💜";
+    input.focus();
+  }
+}
+
+document.getElementById("password").addEventListener("keydown", event => {
+  if (event.key === "Enter") checkPassword();
+});
+
+/* COUNTDOWN: 3, 2, 1 */
+
+function startCountdown() {
+  stopSlideshow();
+
+  const overlay = document.getElementById("countdown");
+  const number = document.getElementById("countNumber");
+  let count = 3;
+
+  overlay.classList.add("show");
+  number.textContent = count;
+
+  countdownTimer = setInterval(() => {
+    count--;
+
+    if (count > 0) {
+      number.textContent = count;
+      number.style.animation = "none";
+      void number.offsetWidth;
+      number.style.animation = "";
+    } else {
+      clearInterval(countdownTimer);
+      overlay.classList.remove("show");
+      beginSlideshow(false);
+    }
+  }, 1000);
+}
+
+/* SLIDESHOW */
+
+function stopSlideshow() {
+  clearInterval(slideTimer);
+  clearInterval(progressTimer);
+  slideTimer = null;
+  progressTimer = null;
+  slideshowRunId++;
+}
+
+function showSlide(index) {
+  const image = document.getElementById("slidePhoto");
+
+  image.src = "photos/photo" + (index + 1) + ".jpg";
+  image.alt = "Gopika birthday photo " + (index + 1);
+
+  document.getElementById("photoNumber").textContent =
+    "PHOTO " + (index + 1) + " OF 8";
+
+  document.getElementById("photoCaption").textContent =
+    captions[index] || "A special moment for you ♡";
+}
+
+function beginSlideshow(isReplay) {
+  stopSlideshow();
+
+  const runId = slideshowRunId;
+  const buttons = document.getElementById("slideButtons");
+  const status = document.getElementById("slideStatus");
+  const bar = document.getElementById("progressBar");
+
+  buttons.classList.toggle("hidden", !isReplay);
+  status.textContent = "Enjoy every little moment ♡";
+
+  let index = 0;
+  const duration = 3000;
+  let slideStartedAt = Date.now();
+
+  showSlide(index);
+  bar.style.width = "0%";
+
+  progressTimer = setInterval(() => {
+    if (runId !== slideshowRunId) return;
+
+    const elapsed = Date.now() - slideStartedAt;
+    bar.style.width =
+      Math.min(100, (elapsed / duration) * 100) + "%";
+  }, 40);
+
+  slideTimer = setInterval(() => {
+    if (runId !== slideshowRunId) return;
+
+    index++;
+
+    if (index < 8) {
+      showSlide(index);
+      slideStartedAt = Date.now();
+      bar.style.width = "0%";
+    } else {
+      stopSlideshow();
+      bar.style.width = "100%";
+      status.textContent = "Hope these moments made you smile 💜";
+      buttons.classList.remove("hidden");
+    }
+  }, duration);
+}
+
+function replaySlideshow() {
+  beginSlideshow(true);
+}
+
+/* RESTART FROM THE BEGINNING */
+
+function restartWebsite() {
+  stopSlideshow();
+  clearInterval(countdownTimer);
+
+  const video = document.getElementById("birthdayVideo");
+  video.pause();
+
+  try {
+    video.currentTime = 0;
+  } catch (e) {}
+
+  document.getElementById("password").value = "";
+  document.getElementById("passwordError").textContent = "";
+  document.getElementById("slideButtons").classList.add("hidden");
+  document.getElementById("progressBar").style.width = "0%";
+
+  goToPage(1);
+}
+</script>
+</body>
+</html>
