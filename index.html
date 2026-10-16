@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Gopika 💜</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --lavender: #eee5ff;
+  --purple: #8052c8;
+  --dark-purple: #4e287d;
+  --pink: #ff7aa8;
+  --gold: #f4bd55;
+  --text: #38264d;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, #fff4fb, transparent 40%),
+    linear-gradient(135deg, #eee5ff, #fce8f3, #e9e5ff);
+  overflow-x: hidden;
+}
+
+button, input {
+  font: inherit;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 26px 16px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page.active {
+  display: flex;
+  animation: fadeIn 0.6s ease;
+}
+
+.content {
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.2;
+  margin: 12px 0;
+  color: var(--dark-purple);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark-purple);
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.subtitle {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  margin: 16px auto 24px;
+  max-width: 370px;
+}
+
+.card {
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255,255,255,0.95);
+  border-radius: 25px;
+  padding: 25px 20px;
+  box-shadow: 0 12px 35px rgba(92,55,133,0.13);
+  backdrop-filter: blur(8px);
+}
+
+.small-note {
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 30px;
+  padding: 13px 22px;
+  margin: 6px 4px;
+  min-height: 46px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, filter 0.2s;
+  box-shadow: 0 5px 12px rgba(60,35,80,0.14);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: #8052c8;
+  color: white;
+}
+
+.btn-pink {
+  background: #ff7aa8;
+  color: #54213a;
+}
+
+.btn-gold {
+  background: #f4bd55;
+  color: #49300b;
+}
+
+.btn-teal {
+  background: #45b9aa;
+  color: #123d38;
+}
+
+.btn-dark {
+  background: #49305f;
+  color: white;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+/* Password page */
+.password-box {
+  width: 100%;
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+.password-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 2px solid #ddc8f6;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.password-input-wrap input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 12px 5px;
+  background: transparent;
+  color: var(--text);
+}
+
+.show-password {
+  white-space: nowrap;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--dark-purple);
+}
+
+.error {
+  color: #c52d5b;
+  font-size: 0.85rem;
+  min-height: 20px;
+  margin: 8px 0;
+}
+
+/* Slideshow */
+.slideshow-card {
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.photo-frame {
+  width: min(100%, 340px);
+  aspect-ratio: 9 / 16;
+  margin: 18px auto 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #e5d8f5;
+  border: 4px solid white;
+  box-shadow: 0 10px 28px rgba(69,39,96,0.19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.caption {
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 10px 3px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #68418d;
+  overflow-wrap: anywhere;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: #ddc9f4;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #8052c8, #ff7aa8);
+  transition: width 0.2s linear;
+}
+
+.countdown {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: #8052c8;
+  animation: pop 0.7s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Friendship letter */
+.letter-card {
+  text-align: left;
+  padding: 28px 22px;
+}
+
+.letter-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: #8052c8;
+  margin-bottom: 20px;
+}
+
+.letter-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  line-height: 1.95;
+  white-space: pre-line;
+}
+
+.signature {
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #8052c8;
+  margin-top: 20px;
+}
+
+/* Final video */
+.video-frame {
+  width: min(100%, 340px);
+  aspect-ratio: 9 / 16;
+  margin: 20px auto;
+  border: 4px solid white;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #e5d8f5;
+  box-shadow: 0 10px 28px rgba(69,39,96,0.19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #e5d8f5;
+}
+
+.birthday-message {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #8052c8;
+  line-height: 1.5;
+  margin: 20px 0 8px;
+}
+
+.footer {
+  margin-top: 22px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 380px) {
+  .page { padding: 20px 12px; }
+  .card { padding: 22px 15px; }
+  .photo-frame, .video-frame { width: min(100%, 300px); }
+  .btn { padding: 12px 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: WELCOME -->
+<section class="page active" id="page1">
+  <div class="content">
+    <div class="emoji">🎀💜🎂</div>
+    <div class="card">
+      <p class="small-note">A little surprise made just for you</p>
+      <h1>Hey Gopika! 💜</h1>
+      <p class="subtitle">
+        Today is all about celebrating you.
+        So, I made something special to make your birthday a little more memorable. ✨
+      </p>
+      <button class="btn btn-primary" onclick="goToPage(2)">
+        Open Your Surprise 💌
+      </button>
+    </div>
+    <div class="footer">Made with love & friendship 💜</div>
+  </div>
+</section>
+
+<!-- PAGE 2: PASSWORD -->
+<section class="page" id="page2">
+  <div class="content">
+    <div class="emoji">🔐💗</div>
+    <div class="card">
+      <h2>A Little Secret</h2>
+      <p class="subtitle">Enter the password to unlock your surprise.</p>
+
+      <div class="password-box">
+        <div class="password-input-wrap">
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="Enter password"
+            autocomplete="off"
+            onkeydown="if(event.key === 'Enter') checkPassword()"
+          >
+          <label class="show-password">
+            <input type="checkbox" onchange="togglePassword(this)">
+            Show
+          </label>
+        </div>
+        <p class="error" id="passwordError"></p>
+      </div>
+
+      <button class="btn btn-pink" onclick="checkPassword()">
+        Unlock 💖
+      </button>
+      <div class="btn-row">
+        <button class="btn btn-dark" onclick="goToPage(1)">← Back</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3: SLIDESHOW -->
+<section class="page" id="page3">
+  <div class="content">
+    <h2>Birthday Girl ✨</h2>
+    <p class="small-note">A few little moments to celebrate you 💜</p>
+
+    <div class="card slideshow-card">
+      <div id="countdownArea">
+        <p>Ready for your little memory show?</p>
+        <button class="btn btn-primary" onclick="startSlideshow()">
+          Let's Begin 🎞️
+        </button>
+      </div>
+
+      <div id="countdownNumber" class="countdown hidden">3</div>
+
+      <div id="slideArea" class="hidden">
+        <div class="photo-frame">
+          <img id="slideImage" src="photos/photo1.jpg" alt="Birthday memory">
+        </div>
+
+        <!-- Caption stays OUTSIDE the photo frame -->
+        <div class="caption" id="slideCaption"></div>
+
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <p class="small-note" id="slideCounter">Photo 1 of 8</p>
+      </div>
+
+      <div id="slideshowButtons" class="btn-row hidden">
+        <button class="btn btn-teal" onclick="goToPage(4)">
+          Continue 💌
+        </button>
+        <button class="btn btn-gold" onclick="replaySlideshow()">
+          Replay ↻
+        </button>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-dark" onclick="goToPage(2)">← Back</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4: FRIENDSHIP LETTER -->
+<section class="page" id="page4">
+  <div class="content">
+    <div class="emoji">💌🌷</div>
+
+    <div class="card letter-card">
+      <div class="letter-title">A Little Message for You</div>
+
+      <div class="letter-text">Dear Gopika,
+
+Happy Birthday! 💜
+
+On your special day, I just want to wish you lots of happiness, peace, laughter, and beautiful moments.
+
+May this new year of your life bring you closer to your dreams. Keep smiling, keep being yourself, and never forget how special you are.
+
+I'm glad to have you as a friend. I hope life gives you countless reasons to smile and many wonderful memories to look back on.
+
+Enjoy your special day to the fullest. You deserve all the good things coming your way! 🥳💗
+
+Once again, Happy Birthday, Gopika! 🎂✨</div>
+
+      <div class="signature">With friendship & best wishes 💜</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-dark" onclick="goToPage(3)">← Back</button>
+      <button class="btn btn-primary" onclick="goToPage(5)">
+        One Last Surprise 🎁
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5: FINAL VIDEO -->
+<section class="page" id="page5">
+  <div class="content">
+    <div class="emoji">🎂🎉💜</div>
+
+    <h1>Happy Birthday!</h1>
+    <h2>Gopika 🥳</h2>
+
+    <p class="subtitle">
+      Here's one last little surprise for you. 💗
+    </p>
+
+    <div class="card">
+      <div class="video-frame">
+        <video id="birthdayVideo" controls playsinline preload="metadata">
+          <source src="videos/birthday.mp4" type="video/mp4">
+          Your browser does not support this video.
+        </video>
+      </div>
+
+      <div class="birthday-message">
+        Happy Birthday, Gopika! 💜
+      </div>
+
+      <p class="subtitle">
+        May your days be filled with happiness, your heart with love,
+        and your life with beautiful memories. Keep smiling always! 🌷✨
+      </p>
+
+      <div class="btn-row">
+        <button class="btn btn-pink" onclick="replayVideo()">
+          Watch Again ▶
+        </button>
+        <button class="btn btn-gold" onclick="goToPage(1)">
+          From the Beginning ↻
+        </button>
+      </div>
+    </div>
+    <div class="footer">A little birthday surprise made especially for you 💜</div>
+  </div>
+</section>
+
+<script>
+/* -----------------------------
+   EDIT YOUR PHOTO CAPTIONS HERE
+   Each caption matches its photo.
+------------------------------ */
+const photos = [
+  {
+    src: "photos/photo1.jpg",
+    caption: "A little moment worth remembering 💜"
+  },
+  {
+    src: "photos/photo2.jpg",
+    caption: "Keep smiling and shining ✨"
+  },
+  {
+    src: "photos/photo3.jpg",
+    caption: "A beautiful face and a beautiful soul 🌷"
+  },
+  {
+    src: "photos/photo4.jpg",
+    caption: "May happiness always find you 💗"
+  },
+  {
+    src: "photos/photo5.jpg",
+    caption: "You deserve all the lovely things in life 🎀"
+  },
+  {
+    src: "photos/photo6.jpg",
+    caption: "Keep making beautiful memories 📸"
+  },
+  {
+    src: "photos/photo7.jpg",
+    caption: "Never stop being your wonderful self 🌸"
+  },
+  {
+    src: "photos/photo8.jpg",
+    caption: "Wishing you the happiest birthday ever! 🎂"
+  }
+];
+
+const CORRECT_PASSWORD = "Gopika";
+const SLIDE_DURATION = 2000; // 2 seconds per photo
+
+let currentSlide = 0;
+let slideshowTimer = null;
+let progressTimer = null;
+let countdownTimer = null;
+let slideshowFinished = false;
+let slideshowRunning = false;
+let countdownRunning = false;
+let countdownToken = 0;
+let progressStartTime = 0;
+
+/* Page navigation */
+function goToPage(pageNumber) {
+  clearSlideshowTimers();
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById("page" + pageNumber).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (pageNumber !== 5) {
+    const video = document.getElementById("birthdayVideo");
+    video.pause();
+  }
+
+  if (pageNumber === 3 && !slideshowFinished) {
+    document.getElementById("countdownArea").classList.remove("hidden");
+    document.getElementById("countdownNumber").classList.add("hidden");
+    document.getElementById("slideArea").classList.add("hidden");
+    document.getElementById("slideshowButtons").classList.add("hidden");
+  }
+}
+
+/* Password */
+function togglePassword(checkbox) {
+  document.getElementById("passwordInput").type =
+    checkbox.checked ? "text" : "password";
+}
+
+function checkPassword() {
+  const input = document.getElementById("passwordInput").value.trim();
+  const error = document.getElementById("passwordError");
+
+  if (input.toLowerCase() === CORRECT_PASSWORD.toLowerCase()) {
+    error.textContent = "";
+    document.getElementById("passwordInput").value = "";
+    goToPage(3);
+  } else {
+    error.textContent = "That password isn't correct. Try again 💜";
+  }
+}
+
+/* Slideshow timer cleanup */
+function clearSlideshowTimers() {
+  clearTimeout(slideshowTimer);
+  clearInterval(progressTimer);
+  clearInterval(countdownTimer);
+
+  slideshowTimer = null;
+  progressTimer = null;
+  countdownTimer = null;
+
+  slideshowRunning = false;
+  countdownRunning = false;
+
+  // Invalidate any countdown that may still be running
+  countdownToken++;
+}
+
+/* Begin 3-2-1 countdown */
+function startSlideshow() {
+  if (countdownRunning || slideshowRunning) return;
+
+  clearSlideshowTimers();
+
+  const thisCountdownToken = countdownToken;
+  countdownRunning = true;
+
+  document.getElementById("countdownArea").classList.add("hidden");
+  document.getElementById("slideArea").classList.add("hidden");
+  document.getElementById("slideshowButtons").classList.add("hidden");
+
+  const countdownElement = document.getElementById("countdownNumber");
+  countdownElement.classList.remove("hidden");
+
+  let number = 3;
+  countdownElement.textContent = number;
+
+  countdownTimer = setInterval(() => {
+    if (thisCountdownToken !== countdownToken) {
+      clearInterval(countdownTimer);
+      return;
+    }
+
+    number--;
+
+    if (number > 0) {
+      countdownElement.textContent = number;
+      countdownElement.style.animation = "none";
+      void countdownElement.offsetWidth;
+      countdownElement.style.animation = "pop 0.7s ease";
+    } else {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+
+      if (thisCountdownToken !== countdownToken) return;
+
+      countdownElement.classList.add("hidden");
+      countdownRunning = false;
+      runSlideshow();
+    }
+  }, 1000);
+}
+
+/* Replay starts from the first photo */
+function replaySlideshow() {
+  clearSlideshowTimers();
+
+  currentSlide = 0;
+  slideshowFinished = true;
+
+  document.getElementById("countdownArea").classList.add("hidden");
+  document.getElementById("countdownNumber").classList.add("hidden");
+  document.getElementById("slideArea").classList.remove("hidden");
+
+  // Keep both buttons visible throughout replay
+  document.getElementById("slideshowButtons").classList.remove("hidden");
+
+  runSlideshow();
+}
+
+/* Start displaying photos */
+function runSlideshow() {
+  clearTimeout(slideshowTimer);
+  clearInterval(progressTimer);
+
+  slideshowRunning = true;
+  currentSlide = 0;
+
+  document.getElementById("slideArea").classList.remove("hidden");
+  document.getElementById("slideshowButtons").classList.add("hidden");
+
+  showSlide(currentSlide);
+}
+
+/* Update image and caption together */
+function showSlide(index) {
+  const image = document.getElementById("slideImage");
+  const caption = document.getElementById("slideCaption");
+  const counter = document.getElementById("slideCounter");
+  const progressBar = document.getElementById("progressBar");
+
+  image.src = photos[index].src;
+  image.alt = "Birthday photo " + (index + 1);
+  caption.textContent = photos[index].caption;
+  counter.textContent = "Photo " + (index + 1) + " of " + photos.length;
+
+  progressBar.style.width = "0%";
+  progressStartTime = Date.now();
+
+  clearInterval(progressTimer);
+
+  progressTimer = setInterval(() => {
+    const elapsed = Date.now() - progressStartTime;
+    const percent = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+    progressBar.style.width = percent + "%";
+  }, 50);
+
+  clearTimeout(slideshowTimer);
+
+  slideshowTimer = setTimeout(() => {
+    clearInterval(progressTimer);
+    progressBar.style.width = "100%";
+
+    if (currentSlide < photos.length - 1) {
+      currentSlide++;
+      showSlide(currentSlide);
+    } else {
+      finishSlideshow();
+    }
+  }, SLIDE_DURATION);
+}
+
+/* Finish slideshow without automatic replay */
+function finishSlideshow() {
+  clearTimeout(slideshowTimer);
+  clearInterval(progressTimer);
+
+  slideshowTimer = null;
+  progressTimer = null;
+  slideshowRunning = false;
+  slideshowFinished = true;
+
+  document.getElementById("progressBar").style.width = "100%";
+  document.getElementById("slideshowButtons").classList.remove("hidden");
+}
+
+/* Replay final video */
+function replayVideo() {
+  const video = document.getElementById("birthdayVideo");
+  video.currentTime = 0;
+  video.play().catch(() => {
+    // If playback is blocked, the video controls remain available.
+  });
+}
+
+/* Stop timers if the browser tab is hidden */
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && slideshowRunning) {
+    clearTimeout(slideshowTimer);
+    clearInterval(progressTimer);
+    slideshowTimer = null;
+    progressTimer = null;
+    slideshowRunning = false;
+
+    document.getElementById("slideshowButtons").classList.remove("hidden");
+  }
+});
+</script>
+
+</body>
+</html>
